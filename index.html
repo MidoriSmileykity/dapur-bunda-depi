@@ -81,6 +81,18 @@ h2{font-size:clamp(1.8rem,4.5vw,2.6rem);font-weight:800;letter-spacing:-.01em;ma
 .order{margin-top:24px}
 .order .btn{background:var(--pandan);border-color:var(--pandan);color:#fff}
 .order .btn:hover{background:var(--pandan-d);border-color:var(--pandan-d)}
+.carousel{position:relative}
+.galeri{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;margin:0;padding:0 0 14px;list-style:none;scrollbar-width:thin;scrollbar-color:var(--pandan) var(--daun);-webkit-overflow-scrolling:touch}
+.galeri li{flex:0 0 min(270px,74%);scroll-snap-align:start}
+.car-btn{position:absolute;top:84px;z-index:2;width:44px;height:44px;border-radius:50%;border:0;background:var(--kunyit);color:var(--tinta);font:800 1.3rem/1 "Nunito Sans",sans-serif;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.car-btn:hover{background:#fff}
+.car-btn:disabled{opacity:.35;cursor:default}
+.car-btn.prev{left:-8px}
+.car-btn.next{right:-8px}
+.card{margin:0}
+.card .foto{position:relative;aspect-ratio:4/3;border-radius:10px;overflow:hidden;background:var(--daun);display:grid;place-items:center;font-size:3.4rem}
+.card .foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.card figcaption{font:600 1.1rem/1.3 "Bricolage Grotesque","Nunito Sans",sans-serif;margin-top:10px}
 #kontak{background:var(--daun)}
 .kontak{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;margin-top:24px}
 .kontak h3{font-size:1.1rem;margin-bottom:6px;color:var(--pandan)}
@@ -89,7 +101,7 @@ h2{font-size:clamp(1.8rem,4.5vw,2.6rem);font-weight:800;letter-spacing:-.01em;ma
 footer{background:var(--pandan-d);color:#C9D8CF;padding:26px 0;font-size:.92rem}
 .wa-float{position:fixed;right:18px;bottom:18px;background:#25D366;color:#073B1C;font-weight:800;padding:14px 20px;border-radius:999px;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.25);z-index:5}
 @media (max-width:560px){nav{display:none}.hero{padding:48px 0 56px}.item{flex-direction:column;gap:4px}.price{text-align:left}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){html,.galeri{scroll-behavior:auto}}
 </style>
 </head>
 <body>
@@ -115,6 +127,27 @@ footer{background:var(--pandan-d);color:#C9D8CF;padding:26px 0;font-size:.92rem}
     </div>
   </div>
 </div>
+
+<section id="andalan" style="padding-bottom:8px">
+  <div class="wrap">
+    <h2>Menu Andalan</h2>
+    <p class="lead">Beberapa masakan yang paling sering dipesan.</p>
+    <div class="carousel">
+    <button class="car-btn prev" type="button" aria-label="Geser ke kiri">&#8249;</button>
+    <button class="car-btn next" type="button" aria-label="Geser ke kanan">&#8250;</button>
+    <ul class="galeri" id="galeri" tabindex="0" aria-label="Galeri menu andalan, geser untuk melihat lainnya">
+      <li><figure class="card"><div class="foto"><span aria-hidden="true">🍗</span><img src="images/ayam-goreng-kremes.jpg" alt="Ayam Goreng Kremes" width="640" height="480" loading="lazy" onerror="this.remove()"></div><figcaption>Ayam Goreng Kremes</figcaption></figure></li>
+      <li><figure class="card"><div class="foto"><span aria-hidden="true">🥩</span><img src="images/rendang-sapi.jpg" alt="Rendang Sapi" width="640" height="480" loading="lazy" onerror="this.remove()"></div><figcaption>Rendang Sapi</figcaption></figure></li>
+      <li><figure class="card"><div class="foto"><span aria-hidden="true">🍛</span><img src="images/nasi-kuning-komplit.jpg" alt="Nasi Kuning Komplit" width="640" height="480" loading="lazy" onerror="this.remove()"></div><figcaption>Nasi Kuning Komplit</figcaption></figure></li>
+      <li><figure class="card"><div class="foto"><span aria-hidden="true">🥣</span><img src="images/sayur-lodeh.jpg" alt="Sayur Lodeh" width="640" height="480" loading="lazy" onerror="this.remove()"></div><figcaption>Sayur Lodeh</figcaption></figure></li>
+      <li><figure class="card"><div class="foto"><span aria-hidden="true">🥟</span><img src="images/risoles-ragout.jpg" alt="Risoles Ragout" width="640" height="480" loading="lazy" onerror="this.remove()"></div><figcaption>Risoles Ragout</figcaption></figure></li>
+      <li><figure class="card"><div class="foto"><span aria-hidden="true">🍫</span><img src="images/brownies-kukus.jpg" alt="Brownies Kukus" width="640" height="480" loading="lazy" onerror="this.remove()"></div><figcaption>Brownies Kukus</figcaption></figure></li>
+      <li><figure class="card"><div class="foto"><span aria-hidden="true">🍱</span><img src="images/nasi-box-komplit.jpg" alt="Nasi Box Komplit" width="640" height="480" loading="lazy" onerror="this.remove()"></div><figcaption>Nasi Box Komplit</figcaption></figure></li>
+      <li><figure class="card"><div class="foto"><span aria-hidden="true">🎂</span><img src="images/tumpeng-mini.jpg" alt="Tumpeng Mini" width="640" height="480" loading="lazy" onerror="this.remove()"></div><figcaption>Tumpeng Mini</figcaption></figure></li>
+    </ul>
+    </div>
+  </div>
+</section>
 
 <section id="menu">
   <div class="wrap">
@@ -197,6 +230,20 @@ footer{background:var(--pandan-d);color:#C9D8CF;padding:26px 0;font-size:.92rem}
   tabs.forEach(function(t){t.addEventListener('click',function(){show(t.id)})});
   show('tab-eceran');
   document.getElementById('thn').textContent=new Date().getFullYear();
+
+  var g=document.getElementById('galeri'),
+      prev=document.querySelector('.car-btn.prev'),
+      next=document.querySelector('.car-btn.next');
+  function step(){var li=g.querySelector('li');return li?li.offsetWidth+20:240}
+  function cek(){
+    prev.disabled=g.scrollLeft<=2;
+    next.disabled=g.scrollLeft+g.clientWidth>=g.scrollWidth-2;
+  }
+  prev.addEventListener('click',function(){g.scrollBy({left:-step()})});
+  next.addEventListener('click',function(){g.scrollBy({left:step()})});
+  g.addEventListener('scroll',cek,{passive:true});
+  window.addEventListener('resize',cek);
+  cek();
 })();
 </script>
 </body>
